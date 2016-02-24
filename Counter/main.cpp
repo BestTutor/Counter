@@ -14,33 +14,33 @@ void getUserChoice(char &key);
 int main() {
     bool b_error = false;
     char ans;
-    Counter obj_count;
+    CounterType obj_count;
     
     do
     {
         if (!b_error) {
             cout << "Please enter + for increment, - for decrement, r for reset, x for exit: ";
+            getUserChoice(ans);
         }
         else {
             b_error = false;
+            getUserChoice(ans);
         }
-        
-        obj_count.input();
-        ans = obj_count.getKey();
+
         
         if (ans == '+') {
             obj_count.Increment();
-            obj_count.output();
+            obj_count.output(cout);
         }
         else if (ans == '-') {
             obj_count.Decrement();
-            obj_count.output();
+            obj_count.output(cout);
             
         }
         else if (ans == 'r' || ans == 'R') {
             obj_count.Reset();
             cout << "Counter has been reset" << endl;
-            obj_count.output();
+            obj_count.output(cout);
         }
         else if (ans == 'x' || ans == 'X') {
             exit(1);

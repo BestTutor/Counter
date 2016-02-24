@@ -6,26 +6,26 @@
 #ifndef Counter_h
 #define Counter_h
 
-#include <iostream>
-using namespace std;
-
 // class for a counter object
-class Counter {
+class CounterType {
 private:
     int n_count;
-    char key;
     
 public:
-    Counter() { n_count = 0;}
-    ~Counter() { }
+    CounterType() { n_count = 0;}
+    CounterType(int n_start) { n_count = n_start;}
+    ~CounterType() { }
     
-    char getKey() { return key; }
     void Reset() { n_count = 0; }
     void Increment() { n_count++; }
-    void Decrement() { n_count--; }
+    void Decrement() {
+        n_count--;
+        if (n_count < 0) {
+            n_count = 0;
+        }
+    }
     
-    void input() { cin >> key; }
-    void output() { cout << "count : " << n_count << endl; }
+    void output(ostream &outs) { outs << "count : " << n_count << endl; }
 };
 
 #endif /* Counter_h */
