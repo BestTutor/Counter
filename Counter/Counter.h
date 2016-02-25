@@ -13,7 +13,6 @@ private:
     
 public:
     CounterType() { n_count = 0;}
-    CounterType(int n_start) { n_count = n_start;}
     ~CounterType() { }
     
     void Reset() { n_count = 0; }
